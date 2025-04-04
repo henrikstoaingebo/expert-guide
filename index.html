@@ -21,6 +21,7 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 18px;
+      box-sizing: border-box; /* Legger til box-sizing for å inkludere padding i bredden */
     }
     .result {
       margin-bottom: 20px;
@@ -67,12 +68,15 @@
     .tradein-container {
       display: flex;
       gap: 10px;
+      width: 100%; /* Sørger for at containeren ikke overskrider forelderens bredde */
     }
     .tradein-container input {
-      flex: 1;
+      flex: 1; /* Lar input vokse proporsjonalt */
+      min-width: 0; /* Forhindrer at input blir for bredt */
     }
     .tradein-container select {
-      flex: 2;
+      flex: 2; /* Lar select vokse proporsjonalt */
+      min-width: 0; /* Forhindrer at select blir for bredt */
     }
   </style>
 </head>
