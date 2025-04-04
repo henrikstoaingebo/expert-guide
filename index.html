@@ -32,10 +32,20 @@
       text-align: center;
       font-weight: bold;
     }
-    h1 {
-      text-align: center;
-      font-size: 26px;
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 26px;
+      margin: 0;
+      margin-right: 10px;
+    }
+    .telenor-logo {
+      width: 40px;
+      height: 40px;
     }
     .button-container {
       display: flex;
@@ -68,9 +78,11 @@
 </head>
 <body>
 
-  <h1>Splitt-kalkulator 📱</h1>
-  <p>
-  <p>
+  <div class="header-container">
+    <h1>Splitt-kalkulator </h1>
+    <img src="https://www.telenor.no/telenorlogo.svg" alt="Telenor Logo" class="telenor-logo">
+  </div>
+  <p></p>
   <div class="result" id="result">
     Fyll inn pris, innbytteverdi og innskudd for å se månedspris.
   </div>
@@ -83,58 +95,57 @@
     <input type="number" id="tradeinPrice" placeholder="Innbyttepris (kr)">
     <select id="tradein">
       <option value="0">Ingen innbyttemobil</option>
- <option value="7400">iPhone 15 Pro Max</option>
-<option value="5700">iPhone 15</option>
-<option value="5700">iPhone 14 Pro Max</option>
-<option value="4300">iPhone 14 Pro</option>
-<option value="3900">iPhone 14 Plus</option>
-<option value="3600">iPhone 14</option>
-<option value="3600">iPhone 13 Pro</option>
-<option value="4100">iPhone 13 Pro Max</option>
-<option value="2700">iPhone 13</option>
-<option value="2700">iPhone 13 mini</option>
-<option value="2500">iPhone 12 Pro</option>
-<option value="2900">iPhone 12 Pro Max</option>
-<option value="2000">iPhone 12</option>
-<option value="1500">iPhone 12 mini</option>
-<option value="1900">iPhone 11 Pro</option>
-<option value="2100">iPhone 11 Pro Max</option>
-<option value="1400">iPhone 11</option>
-<option value="600">iPhone SE (2nd Gen)</option>
-<option value="2200">iPhone SE (3rd Gen)</option>
+      <option value="7400">iPhone 15 Pro Max</option>
+      <option value="5700">iPhone 15</option>
+      <option value="5700">iPhone 14 Pro Max</option>
+      <option value="4300">iPhone 14 Pro</option>
+      <option value="3900">iPhone 14 Plus</option>
+      <option value="3600">iPhone 14</option>
+      <option value="3600">iPhone 13 Pro</option>
+      <option value="4100">iPhone 13 Pro Max</option>
+      <option value="2700">iPhone 13</option>
+      <option value="2700">iPhone 13 mini</option>
+      <option value="2500">iPhone 12 Pro</option>
+      <option value="2900">iPhone 12 Pro Max</option>
+      <option value="2000">iPhone 12</option>
+      <option value="1500">iPhone 12 mini</option>
+      <option value="1900">iPhone 11 Pro</option>
+      <option value="2100">iPhone 11 Pro Max</option>
+      <option value="1400">iPhone 11</option>
+      <option value="600">iPhone SE (2nd Gen)</option>
+      <option value="2200">iPhone SE (3rd Gen)</option>
 
-<option value="300">Galaxy A15</option>
-<option value="800">Galaxy A16</option>
-<option value="300">Galaxy A22 5G</option>
-<option value="300">Galaxy A32</option>
-<option value="1100">Galaxy A34</option>
-<option value="1300">Galaxy A35</option>
-<option value="300">Galaxy A33 5G</option>
-<option value="1300">Galaxy A54</option>
-<option value="1900">Galaxy A55</option>
-<option value="400">Galaxy A50</option>
-<option value="500">Galaxy A51</option>
-<option value="300">Galaxy A52 5G</option>
-<option value="700">Galaxy A52s 5G</option>
-<option value="1000">Galaxy A53 5G</option>
-<option value="300">Galaxy A71</option>
-<option value="5700">Galaxy S24 Ultra</option>
-<option value="4200">Galaxy S24+</option>
-<option value="2900">Galaxy S23+</option>
-<option value="2500">Galaxy S23</option>
-<option value="2800">Galaxy S22 Ultra 5G</option>
-<option value="1700">Galaxy S22+ 5G</option>
-<option value="1600">Galaxy S22 5G</option>
-<option value="1200">Galaxy S21 5G</option>
-<option value="1100">Galaxy S21 FE 5G</option>
-<option value="1300">Galaxy S21+ 5G</option>
-<option value="1800">Galaxy S21 Ultra 5G</option>
-<option value="1000">Galaxy S20 5G</option>
-<option value="1000">Galaxy S20 FE 5G</option>
-<option value="600">Galaxy S10+</option>
-<option value="600">Galaxy S10</option>
-<option value="300">Galaxy S10e</option>
-
+      <option value="300">Galaxy A15</option>
+      <option value="800">Galaxy A16</option>
+      <option value="300">Galaxy A22 5G</option>
+      <option value="300">Galaxy A32</option>
+      <option value="1100">Galaxy A34</option>
+      <option value="1300">Galaxy A35</option>
+      <option value="300">Galaxy A33 5G</option>
+      <option value="1300">Galaxy A54</option>
+      <option value="1900">Galaxy A55</option>
+      <option value="400">Galaxy A50</option>
+      <option value="500">Galaxy A51</option>
+      <option value="300">Galaxy A52 5G</option>
+      <option value="700">Galaxy A52s 5G</option>
+      <option value="1000">Galaxy A53 5G</option>
+      <option value="300">Galaxy A71</option>
+      <option value="5700">Galaxy S24 Ultra</option>
+      <option value="4200">Galaxy S24+</option>
+      <option value="2900">Galaxy S23+</option>
+      <option value="2500">Galaxy S23</option>
+      <option value="2800">Galaxy S22 Ultra 5G</option>
+      <option value="1700">Galaxy S22+ 5G</option>
+      <option value="1600">Galaxy S22 5G</option>
+      <option value="1200">Galaxy S21 5G</option>
+      <option value="1100">Galaxy S21 FE 5G</option>
+      <option value="1300">Galaxy S21+ 5G</option>
+      <option value="1800">Galaxy S21 Ultra 5G</option>
+      <option value="1000">Galaxy S20 5G</option>
+      <option value="1000">Galaxy S20 FE 5G</option>
+      <option value="600">Galaxy S10+</option>
+      <option value="600">Galaxy S10</option>
+      <option value="300">Galaxy S10e</option>
     </select>
   </div>
 
@@ -145,7 +156,6 @@
     <button id="36months" class="active">36 mnd</button>
     <button id="24months">24 mnd</button>
   </div>
-
 
   <script>
     const priceInput = document.getElementById('price');
