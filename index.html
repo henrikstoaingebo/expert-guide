@@ -14,7 +14,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    input {
+    input, button {
       width: 100%;
       padding: 12px;
       margin: 12px 0;
@@ -37,6 +37,25 @@
       font-size: 26px;
       margin-bottom: 30px;
     }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .button-container button {
+      width: 48%;
+      padding: 8px;
+      font-size: 16px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+    .button-container button.active {
+      background-color: #4B4B4B
+;
+      color: white;
+      border: 1px solid #A9A9A9
+;
+    }
   </style>
 </head>
 <body>
@@ -52,6 +71,12 @@
   <label for="deposit">Startinnskudd (kr):</label>
   <input type="number" id="deposit" placeholder="F.eks. 2990">
 
+  <div class="button-container">
+   
+    <button id="36months" class="active">36 mnd</button>
+    <button id="24months">24 mnd</button>
+  </div>
+
   <div class="result" id="result">
     Fyll inn pris, innbytteverdi og innskudd for å se månedspris.
   </div>
@@ -61,6 +86,10 @@
     const depositInput = document.getElementById('deposit');
     const tradeinInput = document.getElementById('tradein');
     const resultDiv = document.getElementById('result');
+    const months24Button = document.getElementById('24months');
+    const months36Button = document.getElementById('36months');
+
+    let months = 36;  // Default to 36 months
 
     function calculate() {
       const price = parseFloat(priceInput.value) || 0;
@@ -75,7 +104,7 @@
       }
 
       const toPay = price - totalReduction;
-      const monthly = toPay / 36;
+      const monthly = toPay / months;
 
       resultDiv.innerHTML = `Månedspris: ${monthly.toFixed(2)} kr/mnd`;
     }
@@ -83,6 +112,23 @@
     priceInput.addEventListener('input', calculate);
     depositInput.addEventListener('input', calculate);
     tradeinInput.addEventListener('input', calculate);
+
+    months24Button.addEventListener('click', function() {
+      months = 24;
+      months24Button.classList.add('active');
+      months36Button.classList.remove('active');
+      calculate();
+    });
+
+    months36Button.addEventListener('click', function() {
+      months = 36;
+      months36Button.classList.add('active');
+      months24Button.classList.remove('active');
+      calculate();
+    });
+
+    // Initial calculation with default 36 months
+    calculate();
   </script>
 
 </body>
