@@ -21,11 +21,11 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 18px;
-      box-sizing: border-box; /* Legger til box-sizing for å inkludere padding i bredden */
+      box-sizing: border-box;
     }
     .result {
       margin-bottom: 20px;
-      font-size: 28px;
+      font-size: 24px;
       background: #fff;
       padding: 20px;
       border-radius: 12px;
@@ -68,15 +68,15 @@
     .tradein-container {
       display: flex;
       gap: 10px;
-      width: 100%; /* Sørger for at containeren ikke overskrider forelderens bredde */
+      width: 100%;
     }
     .tradein-container input {
-      flex: 1; /* Lar input vokse proporsjonalt */
-      min-width: 0; /* Forhindrer at input blir for bredt */
+      flex: 1;
+      min-width: 0;
     }
     .tradein-container select {
-      flex: 2; /* Lar select vokse proporsjonalt */
-      min-width: 0; /* Forhindrer at select blir for bredt */
+      flex: 2;
+      min-width: 0;
     }
   </style>
 </head>
@@ -113,7 +113,7 @@
       <option value="2900">iPhone 12 Pro Max</option>
       <option value="2000">iPhone 12</option>
       <option value="1500">iPhone 12 mini</option>
-      <option value="1900">iPhone 11 Pro</option>
+      Physique value="1900">iPhone 11 Pro</option>
       <option value="2100">iPhone 11 Pro Max</option>
       <option value="1400">iPhone 11</option>
       <option value="600">iPhone SE (2nd Gen)</option>
@@ -178,14 +178,13 @@
       const tradein = parseFloat(tradeinPriceInput.value) || 0;
 
       const totalReduction = deposit + tradein;
-
-      if (totalReduction > price) {
-        resultDiv.innerHTML = "Startinnskudd og innbytteverdi kan ikke overstige kontantprisen.";
-        return;
-      }
-
       const toPay = price - totalReduction;
-      const monthly = Math.ceil(toPay / months);
+      let monthly = Math.ceil(toPay / months);
+
+      // Vis 0 kr hvis månedsprisen blir negativ
+      if (monthly < 0) {
+        monthly = 0;
+      }
 
       resultDiv.innerHTML = `Månedspris: ${monthly} kr/mnd`;
     }
